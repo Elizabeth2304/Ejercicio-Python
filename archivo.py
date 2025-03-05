@@ -1,7 +1,11 @@
 import csv
+respuestas = {}
 
-# Abrir el archivo CSV
-with open("pregunta.csv", "r") as archivo:
-    lector = csv.reader(archivo)
+# Leer un CSV con encabezados
+with open("preguntas.csv", "r") as archivo:
+    lector = csv.DictReader(archivo)
     for fila in lector:
-        print(fila)  # Imprime cada fila como una lista
+        respuestas[fila["preguntas"]] = fila["respuestas"]
+        # Imprime cada fila como un diccionario
+
+    
